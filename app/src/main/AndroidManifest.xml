@@ -24,6 +24,15 @@
             android:label="@string/title_activity_medication_overview"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ChangeMedication"></activity>
+        <receiver
+            android:name=".Notifications"
+            android:enabled="true"
+            android:exported="false">
+        </receiver>
+        <service
+            android:name=".NotificationIntentService"
+            android:exported="false">
+        </service>
     </application>
 
 </manifest>
