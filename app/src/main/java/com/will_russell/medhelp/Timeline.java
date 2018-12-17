@@ -18,7 +18,7 @@ public class Timeline extends AppCompatActivity {
         setContentView(R.layout.activity_timeline);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        this.getSupportActionBar().setTitle("Timeline");
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,6 +26,28 @@ public class Timeline extends AppCompatActivity {
                 openMedOverview();
             }
         });
+
+        Medication.medicationList.add(new Medication(
+                "Azathioprine",
+                1,
+                150.0
+        ));
+
+        Medication.medicationList.add(new Medication(
+                "Adcal D3",
+                1,
+                1
+        ));
+        Medication.medicationList.add(new Medication(
+                "EpiPen",
+                1,
+                2
+        ));
+        Medication.medicationList.add(new Medication(
+                "Certirizine",
+                1,
+                10.0
+        ));
     }
 
     private void openMedOverview() {
