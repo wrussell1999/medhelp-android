@@ -23,16 +23,23 @@
             android:name=".MedicationOverview"
             android:label="@string/title_activity_medication_overview"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ChangeMedication"></activity>
+        <activity android:name=".ChangeMedication" />
+        <activity
+            android:name=".Settings"
+            android:label="@string/title_activity_settings_activity">
+        </activity>
+
         <receiver
             android:name=".Notifications"
             android:enabled="true"
-            android:exported="false">
-        </receiver>
+            android:exported="false" />
+
         <service
             android:name=".NotificationIntentService"
-            android:exported="false">
-        </service>
+            android:exported="false" />
+
+        <activity android:name=".About" />
+
     </application>
 
 </manifest>

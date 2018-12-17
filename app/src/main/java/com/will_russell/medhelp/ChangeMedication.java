@@ -13,7 +13,7 @@ public class ChangeMedication extends AppCompatActivity {
         setContentView(R.layout.activity_change_medication);
         this.getSupportActionBar().setTitle("Add New Medication");
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        this.getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_white_24dp);
+        this.getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_white_24dp);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
