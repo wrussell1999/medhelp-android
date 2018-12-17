@@ -8,10 +8,23 @@
     tools:context=".MedicationOverview"
     tools:showIn="@layout/activity_medication_overview">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:text="@string/large_text" />
+    <LinearLayout
+        android:id="@+id/medication_list"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/med_element"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:clickable="true">
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>
