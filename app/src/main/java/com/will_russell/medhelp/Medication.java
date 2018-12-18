@@ -5,8 +5,9 @@ import java.util.ArrayList;
 public class Medication {
     private String name;
     private int timesTaken;
-    private Double doseSize;
     private int length;
+    // Either or, not both
+    private Double doseSize;
     private Integer quantity;
 
     public static ArrayList<Medication> medicationList = new ArrayList<Medication>();
