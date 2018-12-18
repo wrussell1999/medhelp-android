@@ -1,10 +1,10 @@
 package com.will_russell.medhelp;
 
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.support.v4.app.DialogFragment;
+import androidx.fragment.app.DialogFragment;
 
 public class ChangeMedication extends AppCompatActivity {
 
