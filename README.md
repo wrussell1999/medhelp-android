@@ -10,5 +10,4 @@
 
 [Project page on my site!](https://sites.google.com/view/willrussell/projects/medhelp?authuser=0 "MedHelp")
 
-_Please note that this app was originally designed for Android, but will be made for desktop first in Visual C#_
 

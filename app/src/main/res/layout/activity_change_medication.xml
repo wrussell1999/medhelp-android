@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewMedicine"
+    tools:context=".ChangeMedication"
     android:name="Add New Medication">
 
 
@@ -61,9 +61,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="8dp"
             android:orientation="horizontal">
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pick_time"
+                android:onClick="showTimePickerDialog" />
+            <!--
             <EditText
                 android:id="@+id/length_input"
                 android:layout_width="match_parent"
@@ -85,8 +91,52 @@
                 android:background="@drawable/edittext_background"
                 android:entries="@array/time_quantity"
                 android:paddingLeft="4dp"></Spinner>
+                -->
 
         </LinearLayout>
+
+
+     <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal">
+         <Button
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="@string/pick_date"
+             android:onClick="showDatePickerDialog" />
+
+
+        </LinearLayout>
+        <!--
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginRight="4dp"
+                android:paddingLeft="4dp"
+                android:layout_weight="0.5"
+                android:background="@drawable/edittext_background"
+                android:entries="@array/times_taken_values">
+            </Spinner>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="4dp"
+                android:paddingLeft="4dp"
+                android:layout_weight="0.5"
+                android:background="@drawable/edittext_background"
+                android:entries="@array/month">
+
+            </Spinner>
+        </LinearLayout> -->
 
     </LinearLayout>
 
