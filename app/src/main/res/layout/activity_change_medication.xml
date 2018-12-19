@@ -51,7 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-                android:hint="Amount"
+                android:hint="Quantity"
                 android:layout_weight="0.25">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -66,7 +66,7 @@
                 android:layout_marginLeft="4dp"
                 android:layout_weight="0.5"
                 android:background="@drawable/edittext_background"
-                android:entries="@array/amount"
+                android:entries="@array/quantity"
                 android:paddingLeft="8dp">
 
             </Spinner>
