@@ -49,11 +49,9 @@ public class ChangeMedication extends AppCompatActivity {
                 finish();
             }
         });
-
     }
 
-    public static class DatePickerFragment extends DialogFragment
-            implements DatePickerDialog.OnDateSetListener {
+    public static class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -89,7 +87,7 @@ public class ChangeMedication extends AppCompatActivity {
         }
 
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-            // Do something with the time chosen by the user
+
         }
     }
 
@@ -118,5 +116,4 @@ public class ChangeMedication extends AppCompatActivity {
             mb.setEnabled(true);
         }
     }
-
 }
