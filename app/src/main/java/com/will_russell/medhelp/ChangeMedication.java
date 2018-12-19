@@ -2,8 +2,12 @@ package com.will_russell.medhelp;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.DatePicker;
+
 import androidx.fragment.app.DialogFragment;
 
 public class ChangeMedication extends AppCompatActivity {
@@ -32,6 +36,12 @@ public class ChangeMedication extends AppCompatActivity {
                 finish();
             }
         });
+        DialogFragment datePicker = new DatePickerDialog();
+        DatePickerDialog.OnDateSetListener(new View.onClickListener() {
+
+
+
+        });
     }
 
     @Override
@@ -48,5 +58,6 @@ public class ChangeMedication extends AppCompatActivity {
     public void showDatePickerDialog(View v) {
         DialogFragment newFragment = new DatePickerFragment();
         newFragment.show(getSupportFragmentManager(), "datePicker");
+
     }
 }

@@ -19,140 +19,92 @@
         android:paddingTop="16dp"
         android:paddingBottom="16dp">
 
+        <!--
         <EditText
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/edittext_background"
             android:hint="Medication name"
-            android:paddingLeft="16dp" />
+            android:paddingLeft="16dp" />-->
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:hint="Medication name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginBottom="8dp">
 
-            <EditText
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginRight="4dp"
-                android:layout_marginBottom="16dp"
-                android:layout_weight="0.25"
-                android:background="@drawable/edittext_background"
-                android:inputType="numberDecimal"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 android:hint="Amount"
-                android:paddingLeft="16dp" />
+                android:layout_weight="0.25">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Spinner
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="4dp"
-                android:layout_marginBottom="16dp"
                 android:layout_weight="0.5"
                 android:background="@drawable/edittext_background"
                 android:entries="@array/amount"
-                android:paddingLeft="4dp">
+                android:paddingLeft="8dp">
 
             </Spinner>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="8dp"
-            android:orientation="horizontal">
 
-            <Button
-                android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/date_button"
+                style="@style/Widget.MaterialComponents.Button.Icon"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/pick_time"
-                android:onClick="showTimePickerDialog" />
-            <!--
-            <EditText
-                android:id="@+id/length_input"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginRight="4dp"
-                android:layout_weight="0.25"
-                android:background="@drawable/edittext_background"
-                android:hint="Treament length"
-                android:inputType="number"
-                android:paddingLeft="16dp"
-                android:paddingRight="4dp" />
+                android:text="@string/pick_date"
+                app:icon="@drawable/ic_today_white_24dp"
+                android:onClick="showDatePickerDialog"/>
 
-            <Spinner
-                android:id="@+id/length_unit"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="4dp"
-                android:layout_weight="0.5"
-                android:background="@drawable/edittext_background"
-                android:entries="@array/time_quantity"
-                android:paddingLeft="4dp"></Spinner>
-                -->
+            <TextView
+                android:id="@+id/date_chosen_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
         </LinearLayout>
 
-
-     <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="8dp"
-            android:orientation="horizontal">
-
-         <!--<Button
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:text="@string/pick_date"
-             android:onClick="showDatePickerDialog" />
-         <com.google.android.material.button.MaterialButton
-             android:id="@+id/material_button"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:text="@string/pick_date"
-             android:onClick="showDataPickerDialog"/> -->
-         <com.google.android.material.button.MaterialButton
-             android:id="@+id/material_icon_button"
-             style="@style/Widget.MaterialComponents.Button.Icon"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:text="@string/pick_date"
-             app:icon="@drawable/ic_today_white_24dp"
-             android:onClick="showDatePickerDialog"/>
-
-
-        </LinearLayout>
-        <!--
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="16dp"
-            android:orientation="horizontal">
-
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginRight="4dp"
-                android:paddingLeft="4dp"
-                android:layout_weight="0.5"
-                android:background="@drawable/edittext_background"
-                android:entries="@array/times_taken_values">
-            </Spinner>
-
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="4dp"
-                android:paddingLeft="4dp"
-                android:layout_weight="0.5"
-                android:background="@drawable/edittext_background"
-                android:entries="@array/month">
-
-            </Spinner>
-        </LinearLayout> -->
-
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/time_button"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pick_time"
+            app:icon="@drawable/ic_access_time_white_24dp"
+            android:onClick="showDatePickerDialog"/>
     </LinearLayout>
 
 
@@ -165,6 +117,8 @@
         android:layout_gravity="bottom|right"
         app:layout_anchor="@id/input_layout"
         app:layout_anchorGravity="bottom|right|end"
+        app:backgroundTint="@color/colorAccent"
+        app:tint="#FFFFFF"
         android:src="@drawable/ic_check_white_24dp" />
 
 

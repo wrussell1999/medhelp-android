@@ -7,7 +7,7 @@
     <string name="title_activity_medinfo">Add New Medication</string>
     <string name="title_activity_settings_activity">Settings</string>
     <string name="pick_time">Pick Time</string>
-    <string name="pick_date">Pick Date</string>
+    <string name="pick_date">Pick End Date Of Prescription</string>
 
     <!-- Strings related to Settings -->
 
