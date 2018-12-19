@@ -1,5 +1,7 @@
 package com.will_russell.medhelp;
 
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.checkbox.MaterialCheckBox;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +11,7 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 import android.widget.TextView;
@@ -65,7 +68,7 @@ public class ChangeMedication extends AppCompatActivity {
         }
 
         public void onDateSet(DatePicker view, int year, int month, int day) {
-            String date = day + "/" + month + "/" + year;
+            String date = day + "/" + (month + 1) + "/" + year;
             TextView date_box = (TextView) getActivity().findViewById(R.id.date_chosen_box);
             date_box.setText(date);
         }
@@ -104,8 +107,16 @@ public class ChangeMedication extends AppCompatActivity {
     public void showDatePickerDialog(View v) {
         DialogFragment newFragment = new DatePickerFragment();
         newFragment.show(getSupportFragmentManager(), "datePicker");
-
     }
 
+    public void noDate(View v) {
+        MaterialButton mb = (MaterialButton) findViewById(R.id.date_button);
+        MaterialCheckBox cb = (MaterialCheckBox) findViewById(R.id.is_date_check);
+        if (cb.isChecked()) {
+            mb.setEnabled(false);
+        } else if (!cb.isChecked()) {
+            mb.setEnabled(true);
+        }
+    }
 
 }
