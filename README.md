@@ -1,5 +1,16 @@
 # MedHelp
 
+## Why MedHelp?
+
+Medication is confusing, and difficult to manage. There are already plenty of apps out there that help you manage your medication, but design isn't something they necessarily take into consideration. 
+
+The app is split into 2 main sections:
+
+1. Timeline 
+2. Medications
+
+The idea is you can see what medications you have coming up and what your current medications are. That's it. However, it gets deeper than, only if you want to. You will be able to manage your medication exactly to your needs, without it being complicated. User Experience comes first!
+
 ## Current ideas
 - Notifications to take medication
 - Notifications a week before medication is due to run out so more can be prescribed
