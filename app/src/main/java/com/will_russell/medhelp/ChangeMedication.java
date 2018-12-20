@@ -36,16 +36,6 @@ public class ChangeMedication extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // If all fields are filled.....
-
-                // Add content from the fields and add it to the arraylist
-
-                /*
-                Medication.medicationList.add(new Medication(
-
-
-                ));
-                */
                 finish();
             }
         });
