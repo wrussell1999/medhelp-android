@@ -63,7 +63,6 @@ public class Medication {
         for (int i = 0; i < times.length; i++) {
             this.timesTaken[i] = times[i];
         }
-        // this.timesTaken = times;
     }
     public void setTotalTimesTaken(int totalTimesTaken) {
         this.totalTimesTaken = totalTimesTaken;
@@ -83,8 +82,6 @@ public class Medication {
         for (int i = 0; i < requirements.length; i++) {
             this.requirements[i] = requirements[i];
         }
-
-        // can this.requirements = requirements;
     }
 
     public boolean validtabletTotal() {
