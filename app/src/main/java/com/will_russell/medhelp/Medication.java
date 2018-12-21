@@ -4,11 +4,13 @@ import java.util.ArrayList;
 
 public class Medication {
     private String name;
-    private int timesTaken;
-    private int length;
+    private int totalTimesTaken;
+    private int[] timesTaken;
+    private Integer length; // prescription period
     // Either or, not both
     private Double doseSize;
-    private Integer quantity;
+    private Integer tabletTotal; // How many 
+    private String[] requirements; // What needs to be taken with the medication
 
     public static ArrayList<Medication> medicationList = new ArrayList<Medication>();
 
@@ -26,48 +28,67 @@ public class Medication {
         this.doseSize = doseSize;
     }
 
-    public Medication(String name, int timesTaken, Integer quantity) {
+    public Medication(String name, int timesTaken, Integer tabletTotal) {
         this.name = name;
         this.timesTaken = timesTaken;
-        this.quantity = quantity;
+        this.tabletTotal = tabletTotal;
     }
 
     public String getName() {
         return this.name;
     }
-    public int getTimesTaken() {
+    public int[] getTimesTaken() {
         return this.timesTaken;
+    }
+    public int getTotalTimesTaken() {
+        return this.totalTimesTaken;
     }
     public Double getDoseSize() {
         return this.doseSize;
     }
-    public int getLength() {
+    public Integer getLength() {
         return this.length;
     }
-    public Integer getQuantity() {
-        return this.quantity;
+    public Integer gettabletTotal() {
+        return this.tabletTotal;
     }
-
+    public String[] getRequirements() {
+        return this.requirements;
+    }
 
     public void setName(String name) {
         this.name= name;
     }
-    public void setTimesTaken(int timesTaken) {
-        this.timesTaken = timesTaken;
+    public void setTimesTaken(int[] times) { // Array be set to another???
+        for (int i = 0; i < times.length; i++) {
+            this.timesTaken[i] = times[i];
+        }
+        // this.timesTaken = times;
+    }
+    public void setTotalTimesTaken(int totalTimesTaken) {
+        this.totalTimesTaken = totalTimesTaken;
     }
     public void setDoseSize(Double dose) {
         this.doseSize = dose;
     }
-    public void setLength(int length) {
+    public void setLength(Integer length) {
         this.length = length;
     }
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
+    public void settabletTotal(Integer tabletTotal) {
+        this.tabletTotal = tabletTotal;
     }
 
-    public boolean validQuantity() {
-        if (this.quantity != null) {
+    public void setRequirements(String[] requirements) {
+        for (int i = 0; i < requirements.length; i++) {
+            this.requirements[i] = requirements[i];
+        }
+
+        // can this.requirements = requirements;
+    }
+
+    public boolean validtabletTotal() {
+        if (this.tabletTotal != null) {
             return true;
         } else {
             return false;
