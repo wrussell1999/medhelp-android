@@ -81,8 +81,8 @@ public class MedicationOverview extends AppCompatActivity {
             sub.setId(i);
             sub.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
             String subText = "";
-            if (Medication.medicationList.get(i).validQuantity() == true) {
-                subText = "Quantity: " + new Integer(Medication.medicationList.get(i).getQuantity()).toString();
+            if (Medication.medicationList.get(i).validtabletTotal() == true) {
+                subText = "Quantity: " + new Integer(Medication.medicationList.get(i).gettabletTotal()).toString();
 
             } else {
                 subText = "Dose: " + new Double(Medication.medicationList.get(i).getDoseSize()).toString() + " mg";

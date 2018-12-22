@@ -14,23 +14,23 @@ public class Medication {
 
     public static ArrayList<Medication> medicationList = new ArrayList<Medication>();
 
-    public Medication(String name, int timesTaken, Double doseSize, int length) {
+    public Medication(String name, int totalTimesTaken, Double doseSize, int length) {
         this.name = name;
-        this.timesTaken = timesTaken;
+        this.totalTimesTaken = totalTimesTaken;
         this.doseSize = doseSize;
         this.length = length;
     }
 
     // Constructor for when medication is until otherwise stated
-    public Medication(String name, int timesTaken, Double doseSize) {
+    public Medication(String name, int totalTimesTaken, Double doseSize) {
         this.name = name;
-        this.timesTaken = timesTaken;
+        this.totalTimesTaken = totalTimesTaken;
         this.doseSize = doseSize;
     }
 
-    public Medication(String name, int timesTaken, Integer tabletTotal) {
+    public Medication(String name, int totalTimesTaken, Integer tabletTotal) {
         this.name = name;
-        this.timesTaken = timesTaken;
+        this.totalTimesTaken = totalTimesTaken;
         this.tabletTotal = tabletTotal;
     }
 
