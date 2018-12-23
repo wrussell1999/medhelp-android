@@ -11,7 +11,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="4dp">
+        android:padding="4dp"
+        android:orientation="vertical">
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,23 +28,36 @@
             app:cardElevation="4dp">
 
             <LinearLayout
+                android:id="@+id/cards_timeline"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
                 android:orientation="vertical"
                 android:padding="16dp">
 
                 <TextView
+                    android:id="@+id/med_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Made by William Russell"
-                    android:textSize="16dp" />
+                    android:text="Azathioprime"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
 
+                <TextView
+                    android:id="@+id/med_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Time: 22:00"
+                    android:textSize="12dp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Follow me on GitHub"
-                    android:textSize="16dp" />
+                    android:text="Dose: 150 mg"
+                    android:textSize="12dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Requirements: Take with food"
+                    android:textSize="12dp"/>
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
