@@ -35,7 +35,7 @@ public class Medication {
     public String getName() {
         return this.name;
     }
-    public int[] getTimesTaken() {
+    public String[] getTimesTaken() {
         return this.timesTaken;
     }
     public int getTotalTimesTaken() {
@@ -57,7 +57,7 @@ public class Medication {
     public void setName(String name) {
         this.name= name;
     }
-    public void setTimesTaken(int[] times) { // Array be set to another???
+    public void setTimesTaken(String[] times) { // Array be set to another???
         for (int i = 0; i < times.length; i++) {
             this.timesTaken[i] = times[i];
         }

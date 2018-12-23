@@ -13,7 +13,6 @@ import android.content.Intent;
 import android.widget.TextView;
 
 public class MedicationOverview extends AppCompatActivity {
-    private ListView medicationListView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +69,7 @@ public class MedicationOverview extends AppCompatActivity {
         TextView title = new TextView(this);
         title.setId(index);
         title.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-        title.setText(Medication.medicationList.get(i).getName());
+        title.setText(Medication.medicationList.get(index).getName());
         title.setGravity(Gravity.CENTER_VERTICAL);
         title.setPadding(48, 20,2,0);
         title.setTextColor(Color.parseColor("#000000"));

@@ -12,6 +12,8 @@ import android.content.Intent;
 import android.widget.LinearLayout;
 import com.google.android.material.card.MaterialCardView;
 import android.widget.TextView;
+import android.util.TypedValue;
+import android.view.Gravity;
 
 
 public class Timeline extends AppCompatActivity {
@@ -94,27 +96,42 @@ public class Timeline extends AppCompatActivity {
         }
     }
 
-    private TextView buildName(int index) {
-        TextView tv = new TextView(this);
+    private TextView initialSetup(TextView tv, int index) {
         tv.setId(index);
+        tv.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        tv.setGravity(Gravity.CENTER_VERTICAL);
+        //tv.setTextColor(Color.parseColor("#000000"));
         return tv;
     }
-    
+
+    private TextView buildName(int index) {
+        TextView tv = new TextView(this);
+        tv = initialSetup(tv, index);
+        tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f);
+        tv.setPadding(48, 20, 2, 0);
+        String text = "Name: " + Medication.medicationList.get(index).getName();
+        tv.setText(text);
+        return tv;
+    }
+
     private TextView buildTimes(int index) {
         TextView tv = new TextView(this);
-        tv.setId(index);
+        tv = initialSetup(tv, index);
+        tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f);
+        String text = "Time: " + new Integer(Medication.medicationList.get(index).getTimes).toString();
+        tv.setText(text);
         return tv;
     }
 
     private TextView buildQuantity(int index) {
         TextView tv = new TextView(this);
-        tv.setId(index);
+        tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f);
         return tv;
     }
 
     private TextView buildRequirements(int index) {
         TextView tv = new TextView(this);
-        tv.setId(index);
+        tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f);
         return tv;
     }
 
