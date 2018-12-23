@@ -9,6 +9,10 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
+import android.widget.LinearLayout;
+import com.google.android.material.card.MaterialCardView;
+import android.widget.TextView;
+
 
 public class Timeline extends AppCompatActivity {
 
@@ -28,29 +32,92 @@ public class Timeline extends AppCompatActivity {
         });
 
 
+        String[] times1 = new String[2];
+        times1[0] = "10:00";
+        times1[1] = "20:00";
+        String[] times2 = new String[3];
+        times2[0] = "08:00";
+        times2[1] = "12:00";
+        times2[2] = "18:00";
+        String[] times3 = new String[4];
+        times3[0] = "08:00";
+        times3[1] = "12:00";
+        times3[2] = "16:00";
+        times3[3] = "20:00";
+        String[] times4 = new String[1];
+        times4[0] = "23:00";
+        String[] r1 = new String[1];
+        r1[0] = "With Food";
+        String[] none = new String[1];
+        none[0] = "N/A";
 
         Medication.medicationList.add(new Medication(
                 "Azathioprine",
-                1,
-                150.0
+                times1,
+                times1.length,
+                150.0,
+                r1
         ));
 
         Medication.medicationList.add(new Medication(
                 "Adcal D3",
+                times2,
+                times2.length,
                 1,
-                1
+                r1
         ));
         Medication.medicationList.add(new Medication(
                 "EpiPen",
-                1,
-                2
+                times3,
+                times3.length,
+                10.0,
+                r1
         ));
         Medication.medicationList.add(new Medication(
                 "Certirizine",
-                1,
-                10.0
+                times4,
+                times4.length,
+                10.0,
+                none
         ));
     }
+
+    private void buildView() {
+        LinearLayout layout = (LinearLayout) findViewById(R.id.cards_timeline);
+        layout.removeAllViews();
+
+        for (int i = 0; i < 4; i++) {
+            MaterialCardView materialCardView = new MaterialCardView(this);
+            layout.addView(buildName(i));
+            layout.addView(buildTimes(i));
+            layout.addView(buildQuantity(i));
+        }
+    }
+
+    private TextView buildName(int index) {
+        TextView tv = new TextView(this);
+        tv.setId(index);
+        return tv;
+    }
+    
+    private TextView buildTimes(int index) {
+        TextView tv = new TextView(this);
+        tv.setId(index);
+        return tv;
+    }
+
+    private TextView buildQuantity(int index) {
+        TextView tv = new TextView(this);
+        tv.setId(index);
+        return tv;
+    }
+
+    private TextView buildRequirements(int index) {
+        TextView tv = new TextView(this);
+        tv.setId(index);
+        return tv;
+    }
+
 
     private void openMedOverview() {
         Intent intent = new Intent(this, MedicationOverview.class);
