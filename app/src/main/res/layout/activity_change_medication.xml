@@ -7,7 +7,6 @@
     tools:context=".ChangeMedication"
     android:name="Add New Medication">
 
-
     <LinearLayout
         android:id="@+id/input_layout"
         android:layout_width="match_parent"
@@ -18,16 +17,6 @@
         android:padding="16dp"
         android:paddingTop="16dp"
         android:paddingBottom="16dp">
-
-        <!--
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/edittext_background"
-            android:hint="Medication name"
-            android:paddingLeft="16dp" />-->
-
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -73,7 +62,6 @@
 
         </LinearLayout>
 
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -109,9 +97,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-
-
-
         </LinearLayout>
 
         <com.google.android.material.button.MaterialButton
@@ -123,6 +108,7 @@
             android:text="@string/pick_time"
             app:icon="@drawable/ic_access_time_white_24dp"
             android:onClick="showTimePickerDialog"/>
+
     </LinearLayout>
 
 

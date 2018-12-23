@@ -1,7 +1,11 @@
 package com.will_russell.medhelp;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 
 public class About extends AppCompatActivity {
 
@@ -19,4 +23,19 @@ public class About extends AppCompatActivity {
         finish(); // close this activity as oppose to navigating up
         return false;
     }
+
+    public void gotoGitHub(View view) {
+        gotoURL("https://github.com/wrussell1999");
+    }
+
+    public void gotoTwitter(View view) {
+        gotoURL("https://twitter.com/WilliamR__");
+    }
+
+    private void gotoURL (String url) {
+        Uri uriUrl = Uri.parse(url);
+        Intent intent = new Intent(Intent.ACTION_VIEW, uriUrl);
+        startActivity(intent);
+    }
+
 }
