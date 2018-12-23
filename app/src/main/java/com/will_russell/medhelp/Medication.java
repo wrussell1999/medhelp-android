@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Medication {
     private String name;
     private int totalTimesTaken;
-    private int[] timesTaken;
+    private String[] timesTaken;
     private Integer length; // prescription period
     // Either or, not both
     private Double doseSize;
@@ -15,16 +15,8 @@ public class Medication {
 
     public static ArrayList<Medication> medicationList = new ArrayList<Medication>();
 
-    public Medication(String name, int totalTimesTaken, Double doseSize, int length) {
-        this.name = name;
-        this.totalTimesTaken = totalTimesTaken;
-        this.doseSize = doseSize;
-        this.length = length;
-    }
-
     // Constructor for when medication is until otherwise stated
-
-    public Medication(String name, int[] timesTaken, int totalTimesTaken, Double doseSize, String[] requirements) {
+    public Medication(String name, String[] timesTaken, int totalTimesTaken, Double doseSize, String[] requirements) {
         this.name = name;
         this.timesTaken = timesTaken;
         this.totalTimesTaken = totalTimesTaken;
@@ -32,7 +24,7 @@ public class Medication {
         this.requirements = requirements;
     }
 
-    public Medication(String name, int[] timesTaken, int totalTimesTaken, Integer tabletTotal, String[] requirements) {
+    public Medication(String name, String[] timesTaken, int totalTimesTaken, Integer tabletTotal, String[] requirements) {
         this.name = name;
         this.timesTaken = timesTaken;
         this.totalTimesTaken = totalTimesTaken;
