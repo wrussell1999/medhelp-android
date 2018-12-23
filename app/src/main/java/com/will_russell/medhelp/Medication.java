@@ -10,6 +10,7 @@ public class Medication {
     // Either or, not both
     private Double doseSize;
     private Integer tabletTotal; // How many 
+
     private String[] requirements; // What needs to be taken with the medication
 
     public static ArrayList<Medication> medicationList = new ArrayList<Medication>();
@@ -22,16 +23,21 @@ public class Medication {
     }
 
     // Constructor for when medication is until otherwise stated
-    public Medication(String name, int totalTimesTaken, Double doseSize) {
+
+    public Medication(String name, int[] timesTaken, int totalTimesTaken, Double doseSize, String[] requirements) {
         this.name = name;
+        this.timesTaken = timesTaken;
         this.totalTimesTaken = totalTimesTaken;
         this.doseSize = doseSize;
+        this.requirements = requirements;
     }
 
-    public Medication(String name, int totalTimesTaken, Integer tabletTotal) {
+    public Medication(String name, int[] timesTaken, int totalTimesTaken, Integer tabletTotal, String[] requirements) {
         this.name = name;
+        this.timesTaken = timesTaken;
         this.totalTimesTaken = totalTimesTaken;
         this.tabletTotal = tabletTotal;
+        this.requirements = requirements;
     }
 
     public String getName() {
