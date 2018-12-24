@@ -82,6 +82,10 @@ public class Medication {
         }
     }
 
+    public String getSpecificTime(int index) {
+        return this.timesTaken[index];
+    }
+
     public boolean validtabletTotal() {
         if (this.tabletTotal != null) {
             return true;
