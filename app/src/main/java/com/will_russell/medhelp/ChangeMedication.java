@@ -1,4 +1,4 @@
-ipackage com.will_russell.medhelp;
+package com.will_russell.medhelp;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.appcompat.app.AppCompatActivity;
