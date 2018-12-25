@@ -86,13 +86,14 @@ public class Timeline extends AppCompatActivity {
 
     private void buildView() {
         LinearLayout layout = (LinearLayout) findViewById(R.id.cards_timeline);
-        layout.removeAllViews();
+        layout.removeAllViews(); // This isn't working
 
         for (int i = 0; i < 4; i++) {
             MaterialCardView materialCardView = new MaterialCardView(this);
             layout.addView(buildName(i));
             layout.addView(buildTimes(i));
             layout.addView(buildQuantity(i));
+            materialCardView.addView(layout);
         }
     }
 
@@ -118,7 +119,7 @@ public class Timeline extends AppCompatActivity {
         TextView tv = new TextView(this);
         tv = initialSetup(tv, index);
         tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f);
-        String text = "Time: " + new Integer(Medication.medicationList.get(index).getTimes).toString();
+        String text = "Time: " + new Integer(Medication.medicationList.get(index).getSpecificTime(index)).toString();
         tv.setText(text);
         return tv;
     }
@@ -166,6 +167,4 @@ public class Timeline extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
 }

@@ -72,7 +72,7 @@ public class Medication {
         this.length = length;
     }
 
-    public void settabletTotal(Integer tabletTotal) {
+    public void setTabletTotal(Integer tabletTotal) {
         this.tabletTotal = tabletTotal;
     }
 

@@ -58,11 +58,12 @@ public class MedicationOverview extends AppCompatActivity {
 
     private void buildView() {
         LinearLayout layout = (LinearLayout) findViewById(R.id.med_element);
-        layout.removeAllViews();
+        layout.removeAllViews(); // DOESN'T WORK
         for (int i = 0; i < Medication.medicationList.size(); i++) {
             layout.addView(buildTitle(i));
             layout.addView(buildSub(i));
         }
+
     }
 
     private TextView buildTitle(int index) {
