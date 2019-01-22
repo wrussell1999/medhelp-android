@@ -20,4 +20,3 @@ The idea is you can see what medications you have coming up and what your curren
 - Add descriptions to medication to help remind the user what requirements the medication has (take with food, take without food, etc.
 
 [Project page on my site!](https://sites.google.com/view/willrussell/projects/medhelp?authuser=0 "MedHelp")
-ss
