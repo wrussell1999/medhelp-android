@@ -6,8 +6,17 @@
     <string name="title_activity_medication_overview">Medication</string>
     <string name="title_activity_medinfo">Add New Medication</string>
     <string name="title_activity_settings_activity">Settings</string>
+    <string name="title_activity_about_activity">About</string>
+
     <string name="pick_time">Pick Time To Take Medication</string>
     <string name="pick_date">Pick End Date Of Prescription</string>
 
     <string name="medication_name">Medication name</string>
+
+    <string name="made_by">Made by William Russell</string>
+    <string name="github">GitHub</string>
+    <string name="twitter">Twitter</string>
+
+    <string name="disclamer_title">Disclamer</string>
+    <string name="disclamer">Any mistakes made in your medication is the users responsibility. \nThis app is to help with remembering your medication, but you shouldn\'t depend on it.</string>
 </resources>

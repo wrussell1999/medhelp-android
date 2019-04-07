@@ -80,7 +80,7 @@ public class Timeline extends AppCompatActivity {
                 10.0,
                 none
         ));
-        
+
         buildView();
     }
 
