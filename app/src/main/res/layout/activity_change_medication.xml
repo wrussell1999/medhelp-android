@@ -22,11 +22,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-            android:hint="Medication name">
-
+            android:hint="@string/medication_name">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -49,16 +48,6 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="4dp"
-                android:layout_weight="0.5"
-                android:background="@drawable/edittext_background"
-                android:entries="@array/quantity"
-                android:paddingLeft="8dp">
-
-            </Spinner>
 
         </LinearLayout>
 

@@ -1,5 +1,6 @@
 package com.will_russell.medhelp;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -13,8 +14,6 @@ import android.widget.LinearLayout;
 import com.google.android.material.card.MaterialCardView;
 import android.widget.TextView;
 import android.util.TypedValue;
-import android.view.Gravity;
-
 
 public class Timeline extends AppCompatActivity {
 
@@ -22,17 +21,16 @@ public class Timeline extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timeline);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         this.getSupportActionBar().setTitle("Timeline");
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openMedOverview();
             }
         });
-
 
         String[] times1 = new String[2];
         times1[0] = "10:00";
@@ -82,57 +80,89 @@ public class Timeline extends AppCompatActivity {
                 10.0,
                 none
         ));
+        
+        buildView();
     }
 
     private void buildView() {
-        LinearLayout layout = (LinearLayout) findViewById(R.id.cards_timeline);
-        layout.removeAllViews(); // This isn't working
-
-        for (int i = 0; i < 4; i++) {
-            MaterialCardView materialCardView = new MaterialCardView(this);
-            layout.addView(buildName(i));
-            layout.addView(buildTimes(i));
-            layout.addView(buildQuantity(i));
-            materialCardView.addView(layout);
+        LinearLayout parent = findViewById(R.id.parent);
+        for (int i = 0; i < Medication.medicationList.size(); i++) { // Size depends on number of doses to be taken in a time frame
+            parent.addView(buildCard(i));
         }
     }
 
-    private TextView initialSetup(TextView tv, int index) {
+    private MaterialCardView buildCard(int index) {
+        MaterialCardView card = new MaterialCardView(this);
+        MaterialCardView.LayoutParams params = new MaterialCardView.LayoutParams(MaterialCardView.LayoutParams.MATCH_PARENT, MaterialCardView.LayoutParams.WRAP_CONTENT);
+        params.setMargins(8,8,8,8);
+        card.setLayoutParams(params);
+        card.setCardElevation(4);
+        card.setRadius(8);
+
+        card.setCardBackgroundColor(getResources().getColor(R.color.textboxBackground));
+        card.setMinimumHeight(100);
+        card.addView(buildEntry(index));
+        return card;
+    }
+
+    private LinearLayout buildEntry(int index) {
+        LinearLayout layout = new LinearLayout(this);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        layout.setLayoutParams(params);
+        layout.setOrientation(LinearLayout.VERTICAL);
+        layout.setPadding(16,16,16,16);
+
+        layout.addView(buildName(index));
+        layout.addView(buildTimes(index));
+        layout.addView(buildQuantity(index));
+        layout.addView(buildRequirements(index));
+        return layout;
+    }
+
+    private TextView initialSetup(int index) {
+        TextView tv = new TextView(this);
         tv.setId(index);
-        tv.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-        tv.setGravity(Gravity.CENTER_VERTICAL);
-        //tv.setTextColor(Color.parseColor("#000000"));
+        tv.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f);
         return tv;
     }
 
     private TextView buildName(int index) {
-        TextView tv = new TextView(this);
-        tv = initialSetup(tv, index);
+        TextView tv = initialSetup(index);
         tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f);
-        tv.setPadding(48, 20, 2, 0);
-        String text = "Name: " + Medication.medicationList.get(index).getName();
+        tv.setTypeface(tv.getTypeface(), Typeface.BOLD);
+        String text = Medication.medicationList.get(index).getName();
         tv.setText(text);
         return tv;
     }
 
     private TextView buildTimes(int index) {
-        TextView tv = new TextView(this);
-        tv = initialSetup(tv, index);
-        tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f);
-        String text = "Time: " + new Integer(Medication.medicationList.get(index).getSpecificTime(index)).toString();
+        TextView tv = initialSetup(index);
+        String text = "Time: " + new String(Medication.medicationList.get(index).getSpecificTime(0));
         tv.setText(text);
         return tv;
     }
 
     private TextView buildQuantity(int index) {
-        TextView tv = new TextView(this);
-        tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f);
+        TextView tv = initialSetup(index);
+        String text = "";
+        if (Medication.medicationList.get(index).validtabletTotal() == true) {
+            text = "Quantity: " + new Integer(Medication.medicationList.get(index).gettabletTotal()).toString();
+
+        } else {
+            text = "Dose: " + new Double(Medication.medicationList.get(index).getDoseSize()).toString() + " mg";
+        }
+        tv.setText(text);
         return tv;
     }
 
     private TextView buildRequirements(int index) {
         TextView tv = new TextView(this);
-        tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f);
+        String text = "Requirements: ";
+        for (int i = 0; i < Medication.medicationList.get(index).getRequirements().length; i++) {
+            text += Medication.medicationList.get(index).getRequirements()[i];
+        }
+        tv.setText(text);
         return tv;
     }
 
@@ -144,19 +174,13 @@ public class Timeline extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_timeline, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             Intent intent = new Intent(this, Settings.class);
             startActivity(intent);

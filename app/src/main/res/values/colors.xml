@@ -5,4 +5,5 @@
     <color name="colorAccent">#D81B60</color>
     <color name="textboxBorder">#babdbe</color>
     <color name="textboxBackground">#f1f3f4</color>
+    <color name="textColor">#000000</color>
 </resources>

@@ -6,10 +6,8 @@
     <string name="title_activity_medication_overview">Medication</string>
     <string name="title_activity_medinfo">Add New Medication</string>
     <string name="title_activity_settings_activity">Settings</string>
-    <string name="pick_time">Pick Time</string>
+    <string name="pick_time">Pick Time To Take Medication</string>
     <string name="pick_date">Pick End Date Of Prescription</string>
 
-    <!-- Strings related to Settings -->
-
-    <!-- Example General settings -->
+    <string name="medication_name">Medication name</string>
 </resources>
