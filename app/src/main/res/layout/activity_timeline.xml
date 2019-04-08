@@ -53,18 +53,7 @@
         app:fabAnimationMode="scale"
         app:hideOnScroll="true"
         app:fabCradleRoundedCornerRadius="100dp" />
-<!--
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/fab_margin"
-        app:backgroundTint="@color/colorAccent"
-        app:layout_anchor="@id/bar"
-        app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@drawable/ic_assignment_white_24dp"
-        app:tint="@color/white" />
-        -->
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/med_button"
         android:layout_width="wrap_content"
@@ -74,6 +63,5 @@
         app:cornerRadius="24dp"
         app:layout_anchor="@id/bar"
         app:layout_anchorGravity="bottom|center_horizontal"
-        android:layout_margin="32dp"
-        app:hideOnScroll="true"/>
+        android:layout_margin="32dp" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

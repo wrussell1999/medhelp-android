@@ -3,17 +3,18 @@ package com.will_russell.medhelp;
 import android.graphics.Typeface;
 import android.os.Bundle;
 
-import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+import androidx.core.widget.NestedScrollView;
+
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import com.google.android.material.card.MaterialCardView;
 import android.widget.TextView;
@@ -29,7 +30,6 @@ public class Timeline extends AppCompatActivity {
         BottomAppBar bar = findViewById(R.id.bar);
         setSupportActionBar(bar);
 
-
         MaterialButton button = findViewById(R.id.med_button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +37,34 @@ public class Timeline extends AppCompatActivity {
                 openMedOverview();
             }
         });
+
+        NestedScrollView scroller = findViewById(R.id.scroll_view);
+        if (scroller != null) {
+            scroller.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+                @Override
+                public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                    MaterialButton bt = findViewById(R.id.med_button);
+                    boolean visible = true;
+                    if (scrollY > oldScrollY || scrollY == ( v.getMeasuredHeight() - v.getChildAt(0).getMeasuredHeight())) {
+                        Animation fadeOut = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.button_fade_out);
+                        bt.startAnimation(fadeOut);
+                        bt.setVisibility(View.GONE);
+                        visible = false;
+                    }
+                    if (scrollY < oldScrollY || scrollY == 0) {
+                        Animation fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.button_fade_in);
+                        if (visible == false) {
+                            bt.startAnimation(fadeIn);
+                            visible = true;
+                        }
+                        bt.setVisibility(View.VISIBLE);
+
+                    }
+                }
+            });
+        }
+
+
 
 
 
