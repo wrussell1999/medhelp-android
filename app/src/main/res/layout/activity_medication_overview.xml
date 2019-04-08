@@ -54,7 +54,7 @@
         app:fabAnimationMode="slide"
         app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
         app:hideOnScroll="true"
-        app:fabCradleRoundedCornerRadius="100dp"/>
+        app:fabCradleMargin="0dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

@@ -58,10 +58,13 @@
         android:id="@+id/med_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="10dp"
         android:text="View Medication"
         android:backgroundTint="@color/colorAccent"
-        app:cornerRadius="24dp"
+        app:cornerRadius="22dp"
         app:layout_anchor="@id/bar"
         app:layout_anchorGravity="bottom|center_horizontal"
-        android:layout_margin="32dp" />
+        android:layout_margin="23dp"
+        style="@style/Widget.MaterialComponents.Button.Icon"
+        app:icon="@drawable/ic_assignment_white_24dp"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
