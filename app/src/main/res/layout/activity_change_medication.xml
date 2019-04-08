@@ -7,22 +7,56 @@
     tools:context=".ChangeMedication"
     android:name="Add New Medication">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:layout_scrollFlags="scroll|enterAlways"
+            android:contentInsetLeft="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            android:contentInsetRight="0dp"
+            android:contentInsetEnd="0dp"
+            app:contentInsetRight="0dp"
+            app:contentInsetEnd="0dp" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/title"
+                    style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_activity_medinfo"
+                    android:textAlignment="center"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
     <LinearLayout
         android:id="@+id/input_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="16dp"
         android:dividerPadding="16dp"
         android:orientation="vertical"
-        android:padding="16dp"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp">
-
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp"
+        android:paddingTop="8dp"
+        android:layout_marginTop="?attr/actionBarSize">
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:hint="@string/medication_name">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -32,31 +66,39 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                android:hint="Quantity"
-                android:layout_weight="0.25">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:hint="Quantity">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <CheckBox
+                android:id="@+id/unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/unit"
+                android:onClick="noDate"
+                android:backgroundTint="@color/colorAccent" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_gravity="left"
             android:gravity="center"
-            android:layout_gravity="center">
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -68,23 +110,23 @@
                     style="@style/Widget.MaterialComponents.Button.Icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:onClick="showDatePickerDialog"
                     android:text="@string/pick_date"
-                    app:icon="@drawable/ic_today_white_24dp"
-                    android:onClick="showDatePickerDialog"/>
+                    app:icon="@drawable/ic_today_white_24dp" />
 
-                <com.google.android.material.checkbox.MaterialCheckBox
+                <CheckBox
                     android:id="@+id/is_date_check"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:useMaterialThemeColors="false"
-                    android:hint="N/A"
-                    android:onClick="noDate"/>
+                    android:hint="@string/no_answer"
+                    android:onClick="noDate"
+                    android:backgroundTint="@color/colorAccent" />
             </LinearLayout>
 
             <TextView
                 android:id="@+id/date_chosen_box"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 
@@ -93,36 +135,46 @@
             style="@style/Widget.MaterialComponents.Button.Icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_gravity="left"
+            android:onClick="showTimePickerDialog"
             android:text="@string/pick_time"
-            app:icon="@drawable/ic_access_time_white_24dp"
-            android:onClick="showTimePickerDialog"/>
+            app:icon="@drawable/ic_access_time_white_24dp" />
 
     </LinearLayout>
 
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bar"
+    <View
+        app:layout_constraintTop_toBottomOf="@id/app_bar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@drawable/toolbar_shadow"/>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        style="@style/Widget.MaterialComponents.BottomAppBar"
-        android:backgroundTint="@color/colorPrimary"
-        app:fabCradleMargin="0dp"
-        app:fabCradleRoundedCornerRadius="0dp"
-        app:fabAlignmentMode="center"
-        app:hideOnScroll="true"/>
+        android:layout_gravity="bottom">
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            style="@style/Widget.MaterialComponents.BottomAppBar"
+            android:backgroundTint="@color/colorPrimary"
+            app:fabAlignmentMode="center"
+            />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        style="@style/Widget.MaterialComponents.FloatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/fab_margin"
-        app:layout_anchor="@id/bar"
-        app:layout_anchorGravity="bottom|right|end"
-        app:backgroundTint="@color/colorAccent"
-        app:tint="@color/white"
-        app:srcCompat="@drawable/ic_check_white_24dp" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            style="@style/Widget.MaterialComponents.FloatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            app:layout_anchor="@id/bar"
+            app:layout_anchorGravity="bottom|end"
+            app:backgroundTint="@color/colorAccent"
+            app:tint="@color/white"
+            app:srcCompat="@drawable/ic_check_white_24dp" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

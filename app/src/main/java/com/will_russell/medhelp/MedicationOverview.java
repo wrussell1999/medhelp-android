@@ -28,7 +28,7 @@ public class MedicationOverview extends AppCompatActivity {
         this.getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_white_24dp);
 
 
-        MaterialButton button = findViewById(R.id.fab);
+        MaterialButton button = findViewById(R.id.med_button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

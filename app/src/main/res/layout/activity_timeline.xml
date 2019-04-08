@@ -45,13 +45,7 @@
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <View
-        app:layout_constraintTop_toBottomOf="@id/app_bar"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@drawable/toolbar_shadow"/>
+
 
     <FrameLayout
         android:id="@+id/content"
@@ -63,6 +57,14 @@
         app:layout_constraintTop_toBottomOf="@id/app_bar">
         <include layout="@layout/content_timeline" />
     </FrameLayout>
+
+    <View
+        app:layout_constraintTop_toBottomOf="@id/app_bar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@drawable/toolbar_shadow"/>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/bar_layout"
@@ -95,7 +97,7 @@
         app:cornerRadius="22dp"
         app:layout_anchor="@id/bar_layout"
         app:layout_anchorGravity="bottom|center_horizontal"
-        android:layout_margin="23dp"
+        android:layout_margin="26dp"
         style="@style/Widget.MaterialComponents.Button.Icon"
         app:icon="@drawable/ic_assignment_white_24dp"/>
 
