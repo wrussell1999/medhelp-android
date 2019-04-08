@@ -3,6 +3,7 @@ package com.will_russell.medhelp;
 import android.graphics.Typeface;
 import android.os.Bundle;
 
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -26,6 +27,9 @@ public class Timeline extends AppCompatActivity {
 
         BottomAppBar bar = findViewById(R.id.bar);
         setSupportActionBar(bar);
+
+        CollapsingToolbarLayout collapsingToolbar = findViewById(R.id.toolbar_layout);
+        collapsingToolbar.setTitle(getResources().getString(R.string.title_activity_timeline));
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
