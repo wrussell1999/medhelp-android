@@ -2,6 +2,8 @@ package com.will_russell.medhelp;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+
+import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,9 +23,10 @@ public class Timeline extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timeline);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        this.getSupportActionBar().setTitle("Timeline");
+
+        BottomAppBar bar = findViewById(R.id.bar);
+        setSupportActionBar(bar);
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,6 +34,8 @@ public class Timeline extends AppCompatActivity {
                 openMedOverview();
             }
         });
+
+
 
         String[] times1 = new String[2];
         times1[0] = "10:00";
@@ -157,7 +162,7 @@ public class Timeline extends AppCompatActivity {
     }
 
     private TextView buildRequirements(int index) {
-        TextView tv = new TextView(this);
+        TextView tv = initialSetup(index);
         String text = "Requirements: ";
         for (int i = 0; i < Medication.medicationList.get(index).getRequirements().length; i++) {
             text += Medication.medicationList.get(index).getRequirements()[i];

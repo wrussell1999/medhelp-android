@@ -1,5 +1,8 @@
 package com.will_russell.medhelp;
 
+import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.checkbox.MaterialCheckBox;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,10 +25,13 @@ public class ChangeMedication extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_medication);
-        this.getSupportActionBar().setTitle("Add New Medication");
+
+        BottomAppBar bar = findViewById(R.id.bar);
+        setSupportActionBar(bar);
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         this.getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_white_24dp);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,6 +86,16 @@ public class ChangeMedication extends AppCompatActivity {
 
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
             // Do something with the time chosen by the user
+        }
+    }
+
+    public void noDate(View v) {
+        MaterialButton mb = findViewById(R.id.date_button);
+        MaterialCheckBox cb = findViewById(R.id.is_date_check);
+        if (cb.isChecked()) {
+            mb.setEnabled(false);
+        } else if (!cb.isChecked()) {
+            mb.setEnabled(true);
         }
     }
 

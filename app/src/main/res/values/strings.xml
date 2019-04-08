@@ -8,6 +8,7 @@
     <string name="title_activity_settings_activity">Settings</string>
     <string name="title_activity_about_activity">About</string>
 
+
     <string name="pick_time">Pick Time To Take Medication</string>
     <string name="pick_date">Pick End Date Of Prescription</string>
 

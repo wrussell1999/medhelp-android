@@ -7,12 +7,17 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.android.material.bottomappbar.BottomAppBar;
+
 public class About extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+
+        BottomAppBar bar = findViewById(R.id.bar);
+        setSupportActionBar(bar);
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         this.getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_white_24dp);
     }

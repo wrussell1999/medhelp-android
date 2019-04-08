@@ -6,4 +6,5 @@
     <color name="textboxBorder">#babdbe</color>
     <color name="textboxBackground">#f1f3f4</color>
     <color name="textColor">#000000</color>
+    <color name="white">#FFFFFF</color>
 </resources>
