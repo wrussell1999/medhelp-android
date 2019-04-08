@@ -28,9 +28,6 @@ public class Timeline extends AppCompatActivity {
         BottomAppBar bar = findViewById(R.id.bar);
         setSupportActionBar(bar);
 
-        CollapsingToolbarLayout collapsingToolbar = findViewById(R.id.toolbar_layout);
-        collapsingToolbar.setTitle(getResources().getString(R.string.title_activity_timeline));
-
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,7 +100,9 @@ public class Timeline extends AppCompatActivity {
     private MaterialCardView buildCard(int index) {
         MaterialCardView card = new MaterialCardView(this);
         MaterialCardView.LayoutParams params = new MaterialCardView.LayoutParams(MaterialCardView.LayoutParams.MATCH_PARENT, MaterialCardView.LayoutParams.WRAP_CONTENT);
-        params.setMargins(8,8,8,8);
+        int dimens = (int) (getResources().getDimension(R.dimen.card_margin) / getResources().getDisplayMetrics().density);
+        System.out.println("Dimens: " + dimens);
+        params.setMargins(dimens,dimens,dimens,dimens);
         card.setLayoutParams(params);
         card.setCardElevation(4);
         card.setRadius(8);
@@ -119,8 +118,8 @@ public class Timeline extends AppCompatActivity {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         layout.setLayoutParams(params);
         layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(16,16,16,16);
-
+        int dimens = (int) (getResources().getDimension(R.dimen.card_internal_padding) / getResources().getDisplayMetrics().density);
+        layout.setPadding(dimens,dimens,dimens,dimens);
         layout.addView(buildName(index));
         layout.addView(buildTimes(index));
         layout.addView(buildQuantity(index));
