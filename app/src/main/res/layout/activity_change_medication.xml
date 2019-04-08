@@ -107,8 +107,8 @@
         android:layout_gravity="bottom"
         style="@style/Widget.MaterialComponents.BottomAppBar"
         android:backgroundTint="@color/colorPrimary"
-        app:fabAnimationMode="slide"
         app:fabCradleMargin="0dp"
+        app:fabCradleRoundedCornerRadius="0dp"
         app:fabAlignmentMode="center"
         app:hideOnScroll="true"/>
 

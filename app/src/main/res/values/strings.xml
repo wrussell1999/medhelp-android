@@ -11,6 +11,8 @@
 
     <string name="pick_time">Pick Time To Take Medication</string>
     <string name="pick_date">Pick End Date Of Prescription</string>
+    <string name="view_medication">View medication</string>
+    <string name="add_medication">Add medication</string>
 
     <string name="medication_name">Medication name</string>
 

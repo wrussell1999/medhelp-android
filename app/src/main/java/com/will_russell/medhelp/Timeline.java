@@ -38,36 +38,6 @@ public class Timeline extends AppCompatActivity {
             }
         });
 
-        NestedScrollView scroller = findViewById(R.id.scroll_view);
-        if (scroller != null) {
-            scroller.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
-                @Override
-                public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                    MaterialButton bt = findViewById(R.id.med_button);
-                    boolean visible = true;
-                    if (scrollY > oldScrollY || scrollY == ( v.getMeasuredHeight() - v.getChildAt(0).getMeasuredHeight())) {
-                        Animation fadeOut = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.button_fade_out);
-                        bt.startAnimation(fadeOut);
-                        bt.setVisibility(View.GONE);
-                        visible = false;
-                    }
-                    if (scrollY < oldScrollY || scrollY == 0) {
-                        Animation fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.button_fade_in);
-                        if (visible == false) {
-                            bt.startAnimation(fadeIn);
-                            visible = true;
-                        }
-                        bt.setVisibility(View.VISIBLE);
-
-                    }
-                }
-            });
-        }
-
-
-
-
-
         String[] times1 = new String[2];
         times1[0] = "10:00";
         times1[1] = "20:00";
@@ -87,96 +57,37 @@ public class Timeline extends AppCompatActivity {
         String[] none = new String[1];
         none[0] = "N/A";
 
-        Medication.medicationList.add(new Medication(
-                "Azathioprine",
-                times1,
-                times1.length,
-                150.0,
-                r1
-        ));
+        for (int i = 0; i < 10; i++) {
+            Medication.medicationList.add(new Medication(
+                    "Azathioprine",
+                    times1,
+                    times1.length,
+                    150.0,
+                    r1
+            ));
 
-        Medication.medicationList.add(new Medication(
-                "Adcal D3",
-                times2,
-                times2.length,
-                1,
-                r1
-        ));
-        Medication.medicationList.add(new Medication(
-                "EpiPen",
-                times3,
-                times3.length,
-                10.0,
-                r1
-        ));
-        Medication.medicationList.add(new Medication(
-                "Certirizine",
-                times4,
-                times4.length,
-                10.0,
-                none
-        ));
-
-        Medication.medicationList.add(new Medication(
-                "Azathioprine",
-                times1,
-                times1.length,
-                150.0,
-                r1
-        ));
-
-        Medication.medicationList.add(new Medication(
-                "Adcal D3",
-                times2,
-                times2.length,
-                1,
-                r1
-        ));
-        Medication.medicationList.add(new Medication(
-                "EpiPen",
-                times3,
-                times3.length,
-                10.0,
-                r1
-        ));
-        Medication.medicationList.add(new Medication(
-                "Certirizine",
-                times4,
-                times4.length,
-                10.0,
-                none
-        ));
-
-        Medication.medicationList.add(new Medication(
-                "Azathioprine",
-                times1,
-                times1.length,
-                150.0,
-                r1
-        ));
-
-        Medication.medicationList.add(new Medication(
-                "Adcal D3",
-                times2,
-                times2.length,
-                1,
-                r1
-        ));
-        Medication.medicationList.add(new Medication(
-                "EpiPen",
-                times3,
-                times3.length,
-                10.0,
-                r1
-        ));
-        Medication.medicationList.add(new Medication(
-                "Certirizine",
-                times4,
-                times4.length,
-                10.0,
-                none
-        ));
-
+            Medication.medicationList.add(new Medication(
+                    "Adcal D3",
+                    times2,
+                    times2.length,
+                    1,
+                    r1
+            ));
+            Medication.medicationList.add(new Medication(
+                    "EpiPen",
+                    times3,
+                    times3.length,
+                    10.0,
+                    r1
+            ));
+            Medication.medicationList.add(new Medication(
+                    "Certirizine",
+                    times4,
+                    times4.length,
+                    10.0,
+                    none
+            ));
+        }
         buildView();
     }
 
