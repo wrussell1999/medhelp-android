@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,8 +29,9 @@ public class Timeline extends AppCompatActivity {
         BottomAppBar bar = findViewById(R.id.bar);
         setSupportActionBar(bar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+
+        MaterialButton button = findViewById(R.id.med_button);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openMedOverview();
@@ -87,6 +89,66 @@ public class Timeline extends AppCompatActivity {
                 none
         ));
 
+        Medication.medicationList.add(new Medication(
+                "Azathioprine",
+                times1,
+                times1.length,
+                150.0,
+                r1
+        ));
+
+        Medication.medicationList.add(new Medication(
+                "Adcal D3",
+                times2,
+                times2.length,
+                1,
+                r1
+        ));
+        Medication.medicationList.add(new Medication(
+                "EpiPen",
+                times3,
+                times3.length,
+                10.0,
+                r1
+        ));
+        Medication.medicationList.add(new Medication(
+                "Certirizine",
+                times4,
+                times4.length,
+                10.0,
+                none
+        ));
+
+        Medication.medicationList.add(new Medication(
+                "Azathioprine",
+                times1,
+                times1.length,
+                150.0,
+                r1
+        ));
+
+        Medication.medicationList.add(new Medication(
+                "Adcal D3",
+                times2,
+                times2.length,
+                1,
+                r1
+        ));
+        Medication.medicationList.add(new Medication(
+                "EpiPen",
+                times3,
+                times3.length,
+                10.0,
+                r1
+        ));
+        Medication.medicationList.add(new Medication(
+                "Certirizine",
+                times4,
+                times4.length,
+                10.0,
+                none
+        ));
+
         buildView();
     }
 
@@ -101,7 +163,6 @@ public class Timeline extends AppCompatActivity {
         MaterialCardView card = new MaterialCardView(this);
         MaterialCardView.LayoutParams params = new MaterialCardView.LayoutParams(MaterialCardView.LayoutParams.MATCH_PARENT, MaterialCardView.LayoutParams.WRAP_CONTENT);
         int dimens = (int) (getResources().getDimension(R.dimen.card_margin) / getResources().getDisplayMetrics().density);
-        System.out.println("Dimens: " + dimens);
         params.setMargins(dimens,dimens,dimens,dimens);
         card.setLayoutParams(params);
         card.setCardElevation(4);

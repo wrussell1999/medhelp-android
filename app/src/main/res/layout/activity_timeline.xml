@@ -17,6 +17,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:popupTheme="@style/AppTheme.PopupOverlay"
+                app:layout_scrollFlags="scroll|enterAlways"
                 android:contentInsetLeft="0dp"
                 app:contentInsetLeft="0dp"
                 app:contentInsetStart="0dp"
@@ -40,7 +41,7 @@
             </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_timeline" />
+    <include layout="@layout/content_timeline"/>
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bar"
@@ -49,17 +50,30 @@
         android:layout_gravity="bottom"
         style="@style/Widget.MaterialComponents.BottomAppBar"
         android:backgroundTint="@color/colorPrimary"
-        app:fabAnimationMode="slide"/>
-
+        app:fabAnimationMode="scale"
+        app:hideOnScroll="true"
+        app:fabCradleRoundedCornerRadius="100dp" />
+<!--
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
+        app:backgroundTint="@color/colorAccent"
         app:layout_anchor="@id/bar"
         app:layout_anchorGravity="bottom|end"
-        app:tint="@color/white"
-        app:backgroundTint="@color/colorAccent"
-        app:srcCompat="@drawable/ic_assignment_white_24dp" />
-
+        app:srcCompat="@drawable/ic_assignment_white_24dp"
+        app:tint="@color/white" />
+        -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/med_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Medication"
+        android:backgroundTint="@color/colorAccent"
+        app:cornerRadius="24dp"
+        app:layout_anchor="@id/bar"
+        app:layout_anchorGravity="bottom|center_horizontal"
+        android:layout_margin="32dp"
+        app:hideOnScroll="true"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

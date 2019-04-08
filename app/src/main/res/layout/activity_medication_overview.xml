@@ -52,7 +52,9 @@
         style="@style/Widget.MaterialComponents.BottomAppBar"
         android:backgroundTint="@color/colorPrimary"
         app:fabAnimationMode="slide"
-        app:navigationIcon="@drawable/ic_arrow_back_white_24dp"/>
+        app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
+        app:hideOnScroll="true"
+        app:fabCradleRoundedCornerRadius="100dp"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
